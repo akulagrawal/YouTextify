@@ -6,7 +6,7 @@ import os
 import docx
 from download import urlToWav
 
-doc = docx.Document("youtube_list (copy).docx")
+doc = docx.Document("youtube_list.docx")
 idxVid = 1
 
 for para in doc.paragraphs:
@@ -39,11 +39,14 @@ for para in doc.paragraphs:
 			audio = r.record(source)  # read the entire audio file
 
 		try:
-			fullText += r.recognize_google(audio)
+			fullText += r.recognize_google(audio)	# requires internet connection
+													# Faster rates (but less accuracy) can be achieved by using offline:
+													# fullText += r.recognize_sphinx(audio)
+													# and increasing d (May also convert whole video directly using this)
 			fullText += " "
 		except:
 			fullText += ""
-		
+
 		sys.stdout.write('\033[F')
 		print(str("{0:.2f}".format(((i+1)/m)*100)) + "%")
 
