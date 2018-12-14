@@ -52,7 +52,7 @@ text_data = []
 documents = []
 for i in range(0,50):
     try:
-        with open('data/video' + str(i+1) + '.txt', 'r') as myfile:
+        with open('transcripts/video' + str(i+1) + '.txt', 'r') as myfile:
             data=myfile.read().replace('\n', '')
         data = data.replace('%HESITATION', '')
         documents.append(data)
