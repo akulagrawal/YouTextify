@@ -2,13 +2,13 @@ from __future__ import unicode_literals
 import youtube_dl
 
 
-def urlToWav(url, name):
+def urlDownload(url, name, extension):
 
 	ydl_opts = {
 		'format': 'bestaudio/best',
     	'postprocessors': [{
         	'key': 'FFmpegExtractAudio',
-        	'preferredcodec': 'wav',
+        	'preferredcodec': extension,
         	'preferredquality': '192',
     	}],
     	'outtmpl' : name,

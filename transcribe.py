@@ -16,7 +16,7 @@ for para in doc.paragraphs:
 	url = para.text[idx:]
 	videoName = "video" + str(idxVid)
 	idxVid += 1
-	urlToWav(url,videoName + ".webm", 'wav')
+	urlDownload(url,videoName + ".webm", 'wav')
 
 	orig = AudioSegment.from_wav(videoName + ".wav")
 	n = len(orig)
@@ -58,3 +58,5 @@ if os.path.exists("dummy.flac"):
 	os.remove("dummy.flac")
 if os.path.exists("dummy.json"):
 	os.remove("dummy.json")
+if os.path.exists("dummy.wav"):
+	os.remove("dummy.wav")

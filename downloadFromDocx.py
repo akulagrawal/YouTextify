@@ -2,7 +2,7 @@ import docx
 from download import urlToWav
 
 
-def docxListDownload(DocName):
+def docxListDownload(DocName, extension):
 	doc = docx.Document(DocName)
 	idxVid = 1
 	for para in doc.paragraphs:
@@ -12,7 +12,7 @@ def docxListDownload(DocName):
 		url = para.text[idx:]
 		videoName = "video" + str(idxVid)
 		idxVid += 1
-		urlToWav(url,videoName + ".webm")
+		urlDownload(url,videoName + ".webm", extension)
 
 
-docxListDownload('youtube_list.docx')
+docxListDownload('youtube_list.docx', 'flac')
