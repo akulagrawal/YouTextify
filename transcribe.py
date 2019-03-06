@@ -26,6 +26,10 @@ for para in doc.paragraphs:
 
 	for i in range(0,m):
 		fullText = ""
+		#uncomment and change the following two lines accordingly, to continue transcribing from where it left
+		#eg. if last transcribed was 15th iteration of 36th video:
+		#if idxVid < 35 or (idxVid == 36 and i < 16):
+		#	continue
 		print("Slot " + str(i+1) + " of " + str(m))
 		if i < m-1:
 			temp = orig[i*d:(i+1)*d]
